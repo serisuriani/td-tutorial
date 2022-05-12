@@ -12,14 +12,19 @@ public class GameScreen extends JPanel {
 
     public GameScreen(BufferedImage img) {
         this.img = img;
+        loadSprites();
         random = new Random();
     }
 
+    private void loadSprites(){
+
+    }     
+       
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.drawImage(img, 0, 0, null);
-
+        BufferedImage i = img.getSubimage(32*9,32,32,32);
+        g.drawImage(i,0,0,null);
     }
 
     private Color getRndColor() {
