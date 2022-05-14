@@ -1,4 +1,6 @@
 
+package main;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
@@ -8,14 +10,14 @@ import java.util.Random;
 
 public class Render {
 
-    private GameScreen gameScreen;
+    private Game game;
 
     private BufferedImage img;
     private ArrayList<BufferedImage> sprites = new ArrayList<>();
     private Random random;
 
-    public Render(GameScreen gameScreen) {
-        this.gameScreen = gameScreen;
+    public Render(Game game) {
+        this.game = game;
         random = new Random();
         importImg();
         loadSprites();
