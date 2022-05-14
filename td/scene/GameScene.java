@@ -1,5 +1,7 @@
 package scene;
 
+import main.Game;
+
 public class GameScene {
 
     private Game game;
@@ -7,5 +9,9 @@ public class GameScene {
     public GameScene(Game game) {
         this.game = game;
 
+    }
+
+    public Game getGame() {
+        return game;
     }
 }
