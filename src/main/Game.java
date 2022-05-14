@@ -20,7 +20,6 @@ public class Game extends JFrame implements Runnable {
     private KeyboardListener keyboardListener;
 
     // Classes
-
     private Render render;
     private Menu menu;
     private Play play;
