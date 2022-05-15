@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
 import java.util.ArrayList;
-import java.util.Random;
+//import java.util.Random;
 
 import main.Game;
 import userInterface.MyButton;
@@ -15,14 +15,14 @@ public class Menu extends GameScene implements SceneMethods {
 
     private BufferedImage img;
     private ArrayList<BufferedImage> sprites = new ArrayList<>();
-    private Random random;
+    // private Random random;
 
     private MyButton bPlay, bSettings, bQuit;
     public Object mouseClicked;
 
     public Menu(Game game) {
         super(game);
-        random = new Random();
+        // random = new Random();
         importImg();
         loadSprites();
         initButton();
@@ -32,6 +32,8 @@ public class Menu extends GameScene implements SceneMethods {
     private void initButton() {
 
         bPlay = new MyButton("Play", 100, 100, 100, 30);
+        bSettings = new MyButton("Settings", 100, 150, 100, 30);
+        bQuit = new MyButton("Quit", 100, 200, 100, 30);
 
     }
 
@@ -44,6 +46,8 @@ public class Menu extends GameScene implements SceneMethods {
 
     private void drawButtons(Graphics g) {
         bPlay.draw(g);
+        bSettings.draw(g);
+        bQuit.draw(g);
 
     }
 
@@ -67,16 +71,22 @@ public class Menu extends GameScene implements SceneMethods {
         }
     }
 
-    private int getRndInt() {
-        return random.nextInt(20);
-
-    }
+    /*
+     * private int getRndInt() {
+     * return random.nextInt(20);
+     * 
+     * }
+     */
 
     @Override
     public void mouseClicked(int x, int y) {
         if (bPlay.getBounds().contains(x, y)) {
             setGameStates(PLAY);
 
+        }
+
+        else if (bSettings.getBounds().contains(x, y)) {
+            setGameStates(SETTINGS);
         }
 
     }
