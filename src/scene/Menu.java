@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import main.Game;
+import userInterface.MyButton;
+import static main.GameStates.*;
 
 public class Menu extends GameScene implements SceneMethods {
 
@@ -15,21 +17,33 @@ public class Menu extends GameScene implements SceneMethods {
     private ArrayList<BufferedImage> sprites = new ArrayList<>();
     private Random random;
 
+    private MyButton bPlay, bSettings, bQuit;
+    public Object mouseClicked;
+
     public Menu(Game game) {
         super(game);
         random = new Random();
         importImg();
         loadSprites();
+        initButton();
+
+    }
+
+    private void initButton() {
+
+        bPlay = new MyButton("Play", 100, 100, 100, 30);
 
     }
 
     @Override
     public void render(Graphics g) {
-        for (int y = 0; y < 20; y++) {
-            for (int x = 0; x < 20; x++) {
-                g.drawImage(sprites.get(getRndInt()), x * 32, y * 32, null);
-            }
-        }
+
+        drawButtons(g);
+
+    }
+
+    private void drawButtons(Graphics g) {
+        bPlay.draw(g);
 
     }
 
@@ -55,6 +69,15 @@ public class Menu extends GameScene implements SceneMethods {
 
     private int getRndInt() {
         return random.nextInt(20);
+
+    }
+
+    @Override
+    public void mouseClicked(int x, int y) {
+        if (bPlay.getBounds().contains(x, y)) {
+            setGameStates(PLAY);
+
+        }
 
     }
 
