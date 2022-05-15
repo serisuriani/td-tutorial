@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
+
 import java.util.ArrayList;
 //import java.util.Random;
 
@@ -87,6 +88,27 @@ public class Menu extends GameScene implements SceneMethods {
 
         else if (bSettings.getBounds().contains(x, y)) {
             setGameStates(SETTINGS);
+        } else
+            System.exit(0);
+
+    }
+
+    @Override
+    public void mouseMoved(int x, int y) {
+        bPlay.setMouseOver(false);
+        bSettings.setMouseOver(false);
+        bQuit.setMouseOver(false);
+        if (bPlay.getBounds().contains(x, y)) {
+            bPlay.setMouseOver(true);
+
+        }
+
+        else if (bSettings.getBounds().contains(x, y)) {
+            bSettings.setMouseOver(true);
+        }
+
+        else if (bQuit.getBounds().contains(x, y)) {
+            bQuit.setMouseOver(true);
         }
 
     }

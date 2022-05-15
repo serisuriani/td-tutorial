@@ -46,4 +46,13 @@ public class Settings extends GameScene implements SceneMethods {
 
     }
 
+    @Override
+    public void mouseMoved(int x, int y) {
+        bQuit.setMouseOver(false);
+        if (bQuit.getBounds().contains(x, y)) {
+            bQuit.setMouseOver(true);
+        }
+
+    }
+
 }
