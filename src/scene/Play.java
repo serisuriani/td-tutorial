@@ -5,12 +5,18 @@ package scene;
 import helper.LevelBuild;
 import main.Game;
 import managers.TileManager;
+import userInterface.MyButton;
+
 import java.awt.Graphics;
+import static main.GameStates.*;
 
 public class Play extends GameScene implements SceneMethods {
 
     private int[][] lvl;
     private TileManager tileManager;
+
+    private MyButton bQuit;
+    public Object mouseClicked;
 
     public Play(Game game) {
         super(game);
@@ -18,8 +24,20 @@ public class Play extends GameScene implements SceneMethods {
         lvl = LevelBuild.getLevelData();
         tileManager = new TileManager();
 
+        initButton();
+
         // lvl
         // tilemanager
+
+    }
+
+    private void initButton() {
+        bQuit = new MyButton("Quit", 30, 30, 100, 30);
+
+    }
+
+    private void drawButtons(Graphics g) {
+        bQuit.draw(g);
 
     }
 
@@ -36,10 +54,17 @@ public class Play extends GameScene implements SceneMethods {
 
         }
 
+        drawButtons(g);
+
     }
 
     @Override
     public void mouseClicked(int x, int y) {
+
+        if (bQuit.getBounds().contains(x, y)) {
+            setGameStates(MENU);
+
+        }
 
     }
 
