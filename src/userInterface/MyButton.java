@@ -29,7 +29,7 @@ public class MyButton {
     public void draw(Graphics g) {
 
         // Body
-        g.setColor(Color.green);
+        g.setColor(Color.white);
         g.fillRect(x, y, width, height);
 
         // Border
