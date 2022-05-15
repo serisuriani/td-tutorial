@@ -1,6 +1,6 @@
 package scene;
 
-import java.awt.Color;
+//import java.awt.Color;
 
 import helper.LevelBuild;
 import main.Game;
@@ -35,6 +35,11 @@ public class Play extends GameScene implements SceneMethods {
             }
 
         }
+
+    }
+
+    @Override
+    public void mouseClicked(int x, int y) {
 
     }
 
