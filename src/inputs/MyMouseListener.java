@@ -37,9 +37,12 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
                     game.getMenu().mouseClicked(e.getX(), e.getY());
                     break;
                 case PLAY:
+                    game.getPlay().mouseClicked(e.getX(), e.getY());
                     break;
                 case SETTINGS:
+                    game.getSettings().mouseClicked(e.getX(), e.getY());
                     break;
+
                 default:
                     break;
 
